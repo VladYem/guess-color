@@ -1,13 +1,5 @@
 var munSquares = 6;
 var colors = generateRandomColors(munSquares);
-// [
-// 	"rgb(255, 0, 0)",
-// 	"rgb(255, 255, 0)",
-// 	"rgb(0, 255, 0)",
-// 	"rgb(0, 255, 255)",
-// 	"rgb(0, 0, 255)",
-// 	"rgb(255, 0, 255)",
-// ]
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("color-display");
@@ -32,6 +24,7 @@ easyBtn.addEventListener("click", function(){
 		}
  	}
 });
+
 hardBtn.addEventListener("click", function(){
 	easyBtn.classList.remove("selected");
 	hardBtn.classList.add("selected");
@@ -45,7 +38,7 @@ hardBtn.addEventListener("click", function(){
  	}
 });
 
- resetButton.addEventListener("click", function(){
+resetButton.addEventListener("click", function(){
  	//generate all new colors
  	colors = generateRandomColors(munSquares);
  	//pick a new random color from array
@@ -59,12 +52,12 @@ hardBtn.addEventListener("click", function(){
  	for(var i = 0; i < squares.length; i++) {
  		squares[i].style.backgroundColor = colors[i];
  	}
- 	h1.style.backgroundColor = "#232323"
- });
+ 	h1.style.backgroundColor = "steelblue"
+});
 
 colorDisplay.textContent = pickedColor;
 
- for(var i = 0; i < squares.length; i++){
+for(var i = 0; i < squares.length; i++){
  	//add initial colors to sqares
  	squares[i].style.backgroundColor = colors[i];
 
@@ -84,22 +77,22 @@ colorDisplay.textContent = pickedColor;
  			messageDispay.textContent = "Try Again";
  		}
  	});
- }
+}
 
- function cangeColors(color){
+function cangeColors(color){
  	//loop through all squares
  	for(var i = 0; i < squares.length; i++){
  		//change each color to match given color	
  		squares[i].style.backgroundColor = color;
  	}
- }
+}
 
- function pickColor(){
+function pickColor(){
  	var random = Math.floor(Math.random() * colors.length);
  	return colors[random];
- }
+}
 
- function generateRandomColors(num){
+function generateRandomColors(num){
  	//make an array
  	var arr = []
  	//repeat num times
@@ -109,9 +102,9 @@ colorDisplay.textContent = pickedColor;
  	}
  	//return that array
  	return arr;
- }
+}
 
- function randomColor(){
+function randomColor(){
  	//pick a "red" from 0 - 255
  	var r = Math.floor(Math.random() * 256);
  	//pick a "green" from 0 - 255
@@ -119,6 +112,6 @@ colorDisplay.textContent = pickedColor;
  	//pick a "blue" from 0 - 255
  	var b = Math.floor(Math.random() * 256);
  	return "rgb(" + r + ", " + g + ", " + b + ")";
- }
+}
 
 
